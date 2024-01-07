@@ -11,26 +11,34 @@
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="name" id="name" placeholder="Your Name"/>
+                                <P style="color:red;"><?php echo (isset($data['emptyName'])) ? $data['emptyName']:''?></P>
                             </div>
                             <div class="form-group">
                                 <label for="username"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="username" id="username" placeholder="Your User Name"/>
+                                <P style="color:red;"><?php echo (isset($data['emptyUserName'])) ? $data['emptyUserName']:''?></P>
                             </div>
                             <div class="form-group">
                                 <label for="email"><i class="zmdi zmdi-email"></i></label>
                                 <input type="email" name="email" id="email" placeholder="Your Email"/>
+                               <?php echo (isset($data['emptyEmail'])) ? $data['emptyEmail']:''?>
                             </div>
                             <div class="form-group">
                                 <label for="pass"><i class="zmdi zmdi-lock"></i></label>
                                 <input type="password" name="pass" id="pass" placeholder="Password"/>
+                                <P style="color:red;"><?php echo (isset($data['emptyPassword'])) ? $data['emptyPassword']:''?></P>
+                                <P style="color:red;"><?php echo (isset($data['PasswordLength'])) ? $data['PasswordLength']:''?></P>
                             </div>
                             <div class="form-group">
                                 <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
                                 <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
+                                <P style="color:red;"><?php echo (isset($data['emptyRePassword'])) ? $data['emptyRePassword']:''?></P>
+                                <P style="color:red;"><?php echo (isset($data['passwordNotMatch'])) ? $data['passwordNotMatch']:''?></P>
                             </div>
                             <div class="form-group">
                                 <input type="checkbox" name="agree_term" id="agree-term" class="agree-term" />
                                 <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                                <P style="color:red;"><?php echo (isset($data['emptyAgreeTerm'])) ? $data['emptyAgreeTerm']:''?></P>
                             </div>
                             <div class="form-group form-button">
                                 <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>

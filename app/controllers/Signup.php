@@ -1,7 +1,8 @@
 <?php
-
+require "../app/models/Signup.model.php";
 class Signup extends Controller
-{
+{   
+    use SigninModel;
     public $data;
     private function formDataValidation()
     {
@@ -43,7 +44,7 @@ class Signup extends Controller
         return $error;
     }
     public function sanitizeInputField()
-    {
+    {   
         if (sizeof($this->formDataValidation()) == 0) {
             $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
             $name = $name !== null ? trim($name) : '';
@@ -60,7 +61,11 @@ class Signup extends Controller
                             'username' => $username,
                             'email' => $email,
                             'password' => $password];
-            return $signInData;                
+            $success = $this->dataIntoDB($signInData);
+            echo $success;
+            if($success){
+                header("location: signin"); 
+            }                
         } else {
             $this->data = $this->formDataValidation();
         }
