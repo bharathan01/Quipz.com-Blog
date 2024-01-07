@@ -2,7 +2,7 @@
 require "../app/models/Signup.model.php";
 class Signup extends Controller
 {   
-    use SigninModel;
+    use SignupModel;
     public $data;
     private function formDataValidation()
     {
@@ -62,7 +62,6 @@ class Signup extends Controller
                             'email' => $email,
                             'password' => $password];
             $success = $this->dataIntoDB($signInData);
-            echo $success;
             if($success){
                 header("location: signin"); 
             }                

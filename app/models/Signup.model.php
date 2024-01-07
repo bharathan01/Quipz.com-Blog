@@ -1,5 +1,5 @@
 <?php
-trait SigninModel{
+trait SignupModel{
     use Model;
     public function dataIntoDB($userData){
        $name = $userData['name'];

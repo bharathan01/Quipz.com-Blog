@@ -1,48 +1,44 @@
 <?php
 trait Model
 {
-    use Database;
-    public function insertIntoDb($Query)
-    {
-        try {
-            $PDO = $this->DBconnect();
-            $statement = $PDO->prepare($Query);
-            $statement->execute();
-            return true;
-        } catch (PDOException $e) {
-
-            echo "<html>
-      <head>
-        <style>
-          .display {
-            display: none;
-          }
-          .alert {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: red;
-            font-size: 15px;
-            color: white;
-          }
-        </style>
-      </head>
-      <body>
-      
-      <div id='error' class='alert'>
-        <p>'user name or email is already registerd'</p>
-      </div>
-      
-      <script>
-        setTimeout(() => {
-          var errorDiv = document.getElementById('error');
-          errorDiv.classList.remove('alert');
-          errorDiv.classList.add('display');
-        }, 6000);
-      </script>
-      </body>
-      </html>";
+  use Database;
+  use ErrorHandler;
+  public function insertIntoDb($Query)
+  {
+    try {
+      $PDO = $this->DBconnect();
+      $statement = $PDO->prepare($Query);
+      $success = $statement->execute();
+      return $success;
+    } catch (PDOException $e) {
+      echo  $this->displayError($e->getMessage());
       return false;
-        }
     }
+  }
+  public function getdataFromDb($Query, $params)
+  {
+    try {
+      $PDO = $this->DBconnect();
+      $statement = $PDO->prepare($Query);
+      if (is_array($params)) {
+        foreach ($params as $paramsName => $paramsValue) {
+          $statement->bindValue(':' . $paramsName, $paramsValue, PDO::PARAM_STR);
+        }
+      }
+      $statement->execute();
+      $result = $statement->fetch(PDO::FETCH_ASSOC);
+      if ($result) {
+        unset($result['password']);
+        return $result;
+      } else {
+        throw new Exception("User name or Password is wrong");
+      }
+    } catch (PDOException $e) {
+      echo  $this->displayError($e->getMessage());
+      return false;
+    }catch(Exception $e){
+      echo  $this->displayError($e->getMessage());
+      return false;
+    }
+  }
 }
