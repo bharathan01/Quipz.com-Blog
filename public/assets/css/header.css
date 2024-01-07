@@ -58,7 +58,7 @@ html {
   position: relative;
   display: flex;
   align-items: center;
-  top: 3px;
+  top: 0px;
 }
 .search_btn {
   display: grid;
@@ -75,6 +75,14 @@ html {
 .sign_up {
   width: 60px;
   height: 30px;
+}
+.logo-img{
+  display: flex;
+}
+.log-icon{
+  width: 40px;
+  height: 30px;
+  margin-top: 5px;
 }
 .login_btn {
   color: var(--backgroundColor);
@@ -147,16 +155,85 @@ html {
   height: 3px;
   background-color: var(--secondry-color);
 }
+/* drop dowm */
+.profile_drop_down .drop-down {
+  list-style: none; 
+  overflow: hidden; 
+  height: 80px; 
+  background-color:white;
+  font-family: Arial;
+  width: 200px;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  -webkit-transition: height 0.3s ease;
+          transition: height 0.3s ease;
+  position: absolute;
+  right: 20px;
+  top: 4px;
+  z-index: 5;
+  width: auto;
+  margin-top: 7px;
+  border-radius: 6px;        
+}
+
+.profile_drop_down .drop-down.closed {
+  height: 30px;
+  width: auto;
+  position: absolute;
+  z-index: 5;
+  top: 4px;
+  right: 20px;
+  margin-top: 7px;
+}
+
+.profile_drop_down .drop-down li {
+  border-bottom: 5px solid white;
+}
+
+.profile_drop_down .drop-down li a {
+  display: flex;
+  justify-content: space-between;
+  color: #000000;
+  text-decoration: none;
+  padding: 0 10px 0 10px;
+  align-items: center;
+  font-size: 15px;
+  gap: 10px;
+}
+
+.profile_drop_down .drop-down li:first-child a:after {
+  content: "\25BC";
+  float: right;
+  font-size: 15px;
+}
+.profileimage{
+  width:30px;
+  height:30px;
+  border-radius:50%;
+}
+.log_out{
+  margin-top: 10px;
+  width: 100%;
+  height: 30px;
+  color: var(--secondry-color);
+  border: none;
+  background-color: var(--backgroundColor);
+  border-radius: 5px;
+}
+.log_out:hover{
+  cursor: pointer;
+}
 @media (max-width: 800px) {
   .search_box {
     position: fixed;
     z-index: 4;
-    top: 3px;
+    top: 55px;
     right: 30px;
     width: 40%;
   }
   .search_box.active {
-    display: none;
+    display: 3px;
   }
   .login_btn,
   .sign_up {

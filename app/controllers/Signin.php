@@ -31,8 +31,11 @@ class Signin extends Controller {
                             'password' => $password];                               
             $success = $this->dataIntoDB($signinData);
             if($success){
-                print_r($success);
+                $_SESSION['name'] = $success['name'];
+                $_SESSION['user_id'] = $success['user_id'];
+                $_SESSION['username'] = $success['username'];
                 header('location:home');
+                exit();
             }                
         } else {
             $this->data = $this->formDataValidation();
