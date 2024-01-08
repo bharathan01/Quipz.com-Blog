@@ -42,16 +42,6 @@ The application utilizes custom URL routes for a clean and user-friendly browsin
 Route::get('/blog', 'BlogController@index');
 Route::post('/blog/create', 'BlogController@create');
 // Add your custom routes here
-
-Certainly! I've expanded the README file to include information about the added modules for user login/register, user profile management, blog creation and maintenance, social interactions (like, comment, share), reading top news daily, and administrative features such as adding new categories.
-
-## Prerequisites
-
-To run this project locally, ensure you have the following installed:
-
-- [XAMPP](https://www.apachefriends.org/index.html) - A free and open-source cross-platform web server solution stack.
-- [MySQL](https://www.mysql.com/) - An open-source relational database management system.
-
 ## Project Structure
 
 The project is organized using the MVC architecture:
