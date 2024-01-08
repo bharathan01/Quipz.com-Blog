@@ -41,4 +41,19 @@ trait Model
       return false;
     }
   }
+  public function getCategoryFromDb($Query)
+  {
+    try {
+      $PDO = $this->DBconnect();
+      $statement = $PDO->prepare($Query);
+      $statement->execute();
+      $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+      if ($result) {
+        return $result;
+      }
+    } catch (PDOException $e) {
+      echo  $this->displayError($e->getMessage());
+      return false;
+    }
+  }
 }

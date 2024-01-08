@@ -32,7 +32,7 @@ html {
   display: grid;
   align-content: center;
 }
-.nav-logo ul {
+.nav-logo-ul {
   list-style: none;
   display: flex;
   align-items: center;
