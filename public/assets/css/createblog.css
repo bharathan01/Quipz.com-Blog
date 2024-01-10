@@ -4,7 +4,6 @@
     margin: 0px;
     box-sizing: border-box;
     overflow-x: hidden;
-    font-family: "Playfair Display", serif;
 }
 
 .main_page{
@@ -17,7 +16,7 @@
 }
 .upload_file{
     width: 90%;
-    height: 300px;
+    height: 400px;
     margin-top: 40px;
     display: flex;
     align-items: center;
@@ -27,7 +26,7 @@
 }
 .drag_area{
     width: 85%;
-    height: 250px;
+    height: 350px;
     border: 1px dashed gray;
     border-radius: 20px;
     display: flex;
@@ -42,9 +41,7 @@
     width: 100px;
     height: 100px;
 }
-.drop{
- 
-}
+
 .open_file{
    font-weight: 100%;
    color:rgb(102, 152, 255) ;
@@ -61,21 +58,30 @@
     font-size: 10px;
     display: none;
 }
-.blog_content{
-    width: 90%;
-    height: auto;
-}
-.blog_content form{
+form{
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-top: 25px;
+    align-items: center;
+    justify-content: center;
+
 }
-.blog_content form select{
+.selectCatagory {
     width: 150px;
-    height: 30px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    height: 35px;
+    padding: 0px 5px 0px 12px;
+}
+.selectCatagory option:hover,
+.selectCatagory option:checked{
+    background:rgb(71, 129, 247) ;
+}
+.blog_content{
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 45px;
 }
 input{
     margin-top: 10px;
@@ -89,18 +95,40 @@ textarea{
 }
 .post_btn{
   width: 100%;
-  height: 30px;
+  height: 100px;
   display: flex;
   justify-content: end;
   margin-bottom: 40px;
 }
 .post_btn button{
-    padding: 7px;
+    width: 100px;
+    height: 40px;
+    background-color:rgb(102, 152, 255);
+    border: none;
+    color: white;
+}
+.post_btn button:hover{
+    background-color: rgb(71, 129, 247);
 }
 .drag_area img{
-    width: 100%;
     height: 100%;
     object-fit: cover;
     background-size: cover;
     background-position: center;
+}
+.display {
+    display: none;
+  }
+  .alert {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+    font-size: 15px;
+    color: white;
+    position: absolute;
+    z-index: 10;
+    top: 90px;
+    width: 100%;
+    height: 40px;
 }
