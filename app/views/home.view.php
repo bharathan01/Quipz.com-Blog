@@ -26,5 +26,3 @@
 <?php require '../app/views/catagory.view.php' ?>
 <?php require '../app/views/footer.view.php' ?>
 
-
-

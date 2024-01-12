@@ -14,7 +14,6 @@ trait UploadBlog
         $userId = $_SESSION['user_id'];
         $uploadImage =  __DIR__ . "/uploads/" . $fileName;
         move_uploaded_file($fileTmpName, $uploadImage);
-
         $Query = "INSERT INTO blogs(heading, content, user_id, category_id,image) 
           VALUES ('$heading','$blogContent',$userId,$blogCategory,'$uploadImage');";
         $success = $this->insertIntoDb($Query);
