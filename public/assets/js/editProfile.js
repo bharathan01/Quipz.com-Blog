@@ -4,7 +4,6 @@ const inputImage = document.getElementById('profile_input')
 
 profileImageUpdate.addEventListener('click' ,()=>{
     inputImage.click()
-    console.log('haii')
 })
 inputImage.addEventListener('change',(event) =>{
    displayFile(inputImage.files[0])
@@ -15,14 +14,11 @@ function displayFile(file){
    const supportedFileType = ['image/png','image/jpeg','image/jpg']
 
    if(supportedFileType.includes(fileType)){
-     let fileReader = new FileReader
-     fileReader.onload = function(e){
-        let fileURL = e.target.result
+        let fileURL = URL.createObjectURL(file)
         profileImage.src = `${fileURL}`
+        document.getElementById("error").innerHTML=""
      }
-     fileReader.readAsDataURL(file)
-     }
-     else{fileURL
-
+     else{  
+         document.getElementById("error").innerHTML="File not supported! upload png,jpeg,jpg"
      }
    }

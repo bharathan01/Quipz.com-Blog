@@ -48,7 +48,6 @@ trait Model
       $statement = $PDO->prepare($Query);
       $statement->execute();
       $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-      return $result;
       if ($result) {
         return $result;
       }

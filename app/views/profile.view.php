@@ -14,7 +14,7 @@
     <div class="content">
       <div class="content__cover">
         <div class="content__avatar">
-          <img src="../models/uploads/bharathan01.jpg" alt="">
+          <img src="<?= ROOT ?>/assets/images/<?= $_SESSION['profileimage'] ?>" alt="">
         </div>
         <div class="content__bull"><span></span><span></span><span></span><span></span><span></span>
         </div>
@@ -33,7 +33,6 @@
       </div>
       <div class="content__description">
         <p><?php echo $_SESSION['bio'] ?></p>
-        <p>Columbia University - New York</p>
       </div>
       <ul class="content__list">
         <li><span>65</span>Followers</li>
@@ -70,40 +69,20 @@
         <h1>My Blogs</h1>
       </div>
       <div class="blog_content">
-        <a href="">
-          <div class="single_blog">
-            <div class="blog_img">
-              <img src="../images/img-4.jpg" alt="">
+        <?php
+        foreach($data as $blogs) {?>
+          <a href="">
+            <div class="single_blog">
+              <div class="blog_img">
+                <img src="<?= ROOT ?>/assets/images/<?= $blogs['image'] ?>" alt="imgae">
+              </div>
+              <div class="blog_description">
+                <span><?php echo $blogs['heading'] ?></span>
+              </div>
+              <div class="date"><?php echo $blogs['created_at'] ?></div>
             </div>
-            <div class="blog_discription">
-              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum error hic harum fugiat impedit pariatur.</p>
-            </div>
-          </div>
-        </a>
-        <a href="">
-          <div class="single_blog"></div>
-        </a>
-        <a href="">
-          <div class="single_blog"></div>
-        </a>
-        <a href="">
-          <div class="single_blog"></div>
-        </a>
-        <a href="">
-          <div class="single_blog"></div>
-        </a>
-        <a href="">
-          <div class="single_blog"></div>
-        </a>
-        <a href="">
-          <div class="single_blog"></div>
-        </a>
-        <a href="">
-          <div class="single_blog"></div>
-        </a>
-        <a href="">
-          <div class="single_blog"></div>
-        </a>
+          </a>
+        <?php } ?>
       </div>
     </div>
   </section>
