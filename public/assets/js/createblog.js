@@ -24,15 +24,11 @@ function displayFile() {
   const fileType = file.type;
   const supportedFileType = ["image/png", "image/jpeg", "image/jpg"];
   if (supportedFileType.includes(fileType)) {
-    let fileReader = new FileReader();
-    fileReader.onload = () => {
-      let fileURL = fileReader.result;
-      let image = `<img src='${fileURL}'>`;
-      drageArea.innerHTML = image;
-    };
-    fileReader.readAsDataURL(file);
+    
+    let imageLInk = URL.createObjectURL(file);
+    let image = `<img src='${imageLInk}'>`;
+    drageArea.innerHTML = image;
   } else {
     document.querySelector(".invaild_img").style.display = "block";
   }
 }
-

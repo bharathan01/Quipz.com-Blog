@@ -11,7 +11,9 @@
         <div class="content">
           <div class="content__cover">
             <div class="content__avatar">
-              <img src="../images/img-4.jpg" alt="">
+           
+            <img src="" alt=""> 
+
             </div>
             <div class="content__bull"><span></span><span></span><span></span><span></span><span></span>
             </div>
@@ -26,10 +28,10 @@
                 </svg>
                 <span>Edit Profile</span></a></div>
           <div class="content__title">
-            <h1>Samantha Jones</h1>
+            <h1><?php echo $_SESSION['name']?></h1>
           </div>
           <div class="content__description">
-            <p>Web Producer - Web Specialist</p>
+            <p><?php echo $_SESSION['bio']?></p>
             <p>Columbia University - New York</p>
           </div>
           <ul class="content__list">

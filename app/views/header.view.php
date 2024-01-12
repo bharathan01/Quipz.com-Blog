@@ -40,7 +40,7 @@
                                             <p><?php echo $_SESSION["username"]?></p>
                                         </a></li>
                                     <li class="profile_li_nav"><a href="profile">PROFILE</a></li>
-                                    <li><a href="#"><button class="log_out">Log Out</button></a></li>
+                                    <li><a href="signin"><button class="log_out">Log Out</button></a></li>
                                 </ul>
                             </nav>
                         </li>

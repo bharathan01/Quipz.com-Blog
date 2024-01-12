@@ -1,22 +1,20 @@
 <?php include '../app/views/header.view.php' ?>
 
 <link rel="stylesheet" href="<?= ROOT ?>/assets/css/createblog.css">
+
 <section class="main_page">
-    <div id='error' class='display'>
-        <p>Please enter correct data !</p>
-    </div>
     <div class="upload_file">
-    <form method="POST" action=""> 
+    <form method="POST" enctype="multipart/form-data"> 
         <div class="drag_area" id="drag_area">
             <ion-icon class="icon" name="cloud-upload-outline"></ion-icon>
             <p class="drop">Drag & Drop Image</p>
             <p class="open_file">Browse image</p>
-            <input type="file" name="blog_image" id="blog_image" hidden accept="image/png, image/gif, image/jpeg">
             <span class="support">Supports PNG, JPG, JPEG</span>
             <span class="invaild_img">File Not supported..!</span>
         </div>
     </div>
     <div class="blog_content">
+    <input type="file" name="blog_image" id="blog_image" hidden accept="image/png, image/gif, image/jpeg">
             <label for="category">category</label>
             <select name="selectCatagory" id="selectCatagory" class="selectCatagory">
                 <option value="">Catagory</option>
@@ -29,12 +27,14 @@
             <label for="content">Content</label>
             <textarea name="blog_content" id="blog_content" cols="30" rows="10"></textarea>
             <div class="post_btn">
-                <button id="uploadBlog" name="uploadBlog">POST</button>
+                <button type="submit" id="uploadBlog" name="uploadBlog">POST</button>
             </div>
         </form>
     </div>
+   
 </section>
+<script src="<?= ROOT ?>/assets/js/createblog.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-<script src="<?= ROOT ?>/assets/js/createblog.js"></script>
+
 <?php require '../app/views/footer.view.php' ?>

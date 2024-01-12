@@ -34,6 +34,8 @@ class Signin extends Controller {
                 $_SESSION['name'] = $success['name'];
                 $_SESSION['user_id'] = $success['user_id'];
                 $_SESSION['username'] = $success['username'];
+                $_SESSION['profileimage']  = $success['profileimage'];
+                $_SESSION['bio'] = $success['bio'];
                 header('location:home');
                 exit();
             }                
