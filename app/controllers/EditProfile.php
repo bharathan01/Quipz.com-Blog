@@ -35,14 +35,16 @@ class EditProfile extends Controller
 
                 $email = isset($_POST['email']) ? filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL) : '';
                 $email = $email !== null ? trim($email) : '';
-                $pofileImage = $_FILES["profileImage"];
+               if(isset($_FILES["profileImage"]) ){
+                $profileImage = $_FILES['profileImage'];
+                }
+                print_r($profileImage);
                 $updateProfile =  [
                     'name' => $name,
                     'username' => $username,
                     'email' => $email,
-                    'profileImage' => $pofileImage
+                    'profileImage' => $profileImage
                 ];
-                print_r($updateProfile);
                 $success = $this->updateProfile($updateProfile);
                 if ($success) {
                     // header("location: signin"); 
