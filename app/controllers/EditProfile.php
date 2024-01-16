@@ -4,7 +4,7 @@ class EditProfile extends Controller
 {
     use UpadateProfile;
     private function getUpdatedData()
-    {   
+    { 
         $error = [];
         if (isset($_POST['update'])) {
             if (empty($_POST['name'])) {
@@ -33,21 +33,25 @@ class EditProfile extends Controller
                 $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
                 $username = $username !== null ? trim($username) : '';
 
+                $bio = filter_input(INPUT_POST, 'bio', FILTER_SANITIZE_STRING);
+                
                 $email = isset($_POST['email']) ? filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL) : '';
                 $email = $email !== null ? trim($email) : '';
                if(isset($_FILES["profileImage"]) ){
                 $profileImage = $_FILES['profileImage'];
+                }else{
+                    $profileImage = $_SESSION['profileimage'];
                 }
-                print_r($profileImage);
                 $updateProfile =  [
                     'name' => $name,
                     'username' => $username,
                     'email' => $email,
-                    'profileImage' => $profileImage
+                    'profileImage' => $profileImage,
+                    'bio' => $bio
                 ];
                 $success = $this->updateProfile($updateProfile);
                 if ($success) {
-                    // header("location: signin"); 
+                    header("location: signin"); 
                 }
             } 
         

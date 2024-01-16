@@ -9,7 +9,7 @@
 <body>
     <section class="profile">
         <div class="profile_container">
-            <form method="POST">
+            <form method="POST" enctype="multipart/form-data">
                 <div class="profile_img">
                     <div class="profile_img_input" id="profile_img_input">
                         <img src="<?= ROOT ?>/assets/images/<?= $_SESSION['profileimage'] ?>" accept="image/*" alt="" id="profile_image_update">
