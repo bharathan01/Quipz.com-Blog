@@ -49,7 +49,13 @@ class EditProfile extends Controller
                     'bio' => $bio
                 ];
                 $success = $this->updateProfile($updateProfile);
+                 $profileImageName = $profileImage['name'];
                 if ($success) {
+                    $_SESSION['name'] = $updateProfile['name'];
+                    $_SESSION['username'] = $updateProfile['username'];
+                    $_SESSION['profileimage']  = $profileImageName;
+                    $_SESSION['bio'] = $updateProfile['bio'];
+                    $_SESSION['email'] = $updateProfile['email'];
                     header("location: profile"); 
                 }
             }else{

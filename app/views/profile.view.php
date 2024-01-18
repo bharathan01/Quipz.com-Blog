@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+<!-- <?php include '../app/views/header.view.php' ?> -->
   <link rel="stylesheet" href="<?= ROOT ?>/assets/css/profile.css">
-</head>
 
 <body>
 
@@ -14,7 +7,11 @@
     <div class="content">
       <div class="content__cover">
         <div class="content__avatar">
+          <?php if(!$_SESSION['profileimage'] ==  ''){ ?> 
           <img src="<?= ROOT ?>/assets/images/<?= $_SESSION['profileimage'] ?>" alt="">
+          <?php }else{?>
+            <img src="<?= ROOT ?>/assets/images/profile.png" alt="">
+            <?php } ?>
         </div>
         <div class="content__bull"><span></span><span></span><span></span><span></span><span></span>
         </div>
@@ -70,8 +67,9 @@
       </div>
       <div class="blog_content">
         <?php
+        if($data){
         foreach($data as $blogs) {?>
-          <a href="">
+          <a href="blog?id=1">
             <div class="single_blog">
               <div class="blog_img">
                 <img src="<?= ROOT ?>/assets/images/<?= $blogs['image'] ?>" alt="imgae">
@@ -82,11 +80,12 @@
               <div class="date"><?php echo $blogs['created_at'] ?></div>
             </div>
           </a>
-        <?php } ?>
+        <?php }}else{ ?>
+         <h2>No blog posted</h2>
+         <?php }?>
       </div>
     </div>
   </section>
   <script src="<?= ROOT ?>/assets/js/profile.js"></script>
 </body>
-
-</html>
+<?php require '../app/views/footer.view.php' ?>
