@@ -69,7 +69,7 @@
         <?php
         if($data){
         foreach($data as $blogs) {?>
-          <a href="blog?id=1">
+          <a href="blog?id=<?=$blogs['blog_id']?>">
             <div class="single_blog">
               <div class="blog_img">
                 <img src="<?= ROOT ?>/assets/images/<?= $blogs['image'] ?>" alt="imgae">
