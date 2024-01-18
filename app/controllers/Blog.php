@@ -1,11 +1,13 @@
 <?php 
+require "../app/models/Blog.model.php";
 class Blog extends Controller{
-   
+    use Blogs;
     public function getBlog(){
-        print_r($_GET['id']);
+        $blogId = $_GET['id'];
+       return $this->getSingleBlog($blogId );
     }
     public function index(){
-        $this->view('blog','');
+        $this->view('blog',$this->getBlog());
     }
 } 
 $blog = new Blog();
