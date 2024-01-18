@@ -6,14 +6,9 @@ class Profile extends Controller{
         $logedUserId = $_SESSION['user_id'];
         return $this->getBlogs($logedUserId);
     }
-    public function getUserData(){
-       $data =  $this->getUpdatedData();
-       
-    }
     public function index()
     {  
         $this->view('profile', $this->getLogedInUserBlogs());
     }
 }
 $Profile = new Profile();
-$Profile->getUserData();
