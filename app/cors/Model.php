@@ -9,7 +9,9 @@ trait Model
       $PDO = $this->DBconnect();
       $statement = $PDO->prepare($Query);
       $success = $statement->execute();
-      return $success;
+      if ($success) {
+        return $success;
+      }
     } catch (PDOException $e) {
       echo  $this->displayError($e->getMessage());
       return false;
@@ -36,7 +38,7 @@ trait Model
     } catch (PDOException $e) {
       echo  $this->displayError($e->getMessage());
       return false;
-    }catch(Exception $e){
+    } catch (Exception $e) {
       echo  $this->displayError($e->getMessage());
       return false;
     }
@@ -56,5 +58,4 @@ trait Model
       return false;
     }
   }
-
 }

@@ -1,5 +1,6 @@
 <?php 
 trait UpadateProfile{
+    use Model;
     public function updateProfile($upadatedData){
         $name = $upadatedData['name'];
         $username = $upadatedData['username'];
@@ -12,6 +13,8 @@ trait UpadateProfile{
         $uploadImage = "C:/xampp/htdocs/MVC-frameWork/public/assets/images/".$profileImgName;
         move_uploaded_file($profileImgTemp, $uploadImage);
         $Query = "UPDATE users SET 
-        name=$name,username='[value-3]',`email`='[value-4]',`bio`='[value-5]',`role`='[value-6]',`profileimage`='[value-8]' WHERE 1";
+        name='$name',username='$username',email='$email',bio='$bio',profileimage='$profileImgName' WHERE user_id = $userId";
+        return $this->insertIntoDb($Query);
+       
     }
 }

@@ -1,7 +1,7 @@
 <?php
 require "../app/models/UpdateProfile.model.php";
 class EditProfile extends Controller
-{
+{   
     use UpadateProfile;
     private function getUpdatedData()
     { 
@@ -24,9 +24,8 @@ class EditProfile extends Controller
         return $error;
     }
     public function sanitizeUserData()
-    {    
-            print_r($this->getUpdatedData());
-            if (sizeof($this->getUpdatedData()) == 0) {
+    {   
+          if (sizeof($this->getUpdatedData()) == 0) {
                 $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
                 $name = $name !== null ? trim($name) : '';
 
@@ -51,8 +50,10 @@ class EditProfile extends Controller
                 ];
                 $success = $this->updateProfile($updateProfile);
                 if ($success) {
-                    header("location: signin"); 
+                    header("location: profile"); 
                 }
+            }else{
+                echo "not okk";
             } 
         
     }
@@ -62,4 +63,6 @@ class EditProfile extends Controller
     }
 }
 $edit = new EditProfile();
-$edit->sanitizeUserData();
+if(isset($_POST['update'])){
+    $edit->sanitizeUserData();
+}
