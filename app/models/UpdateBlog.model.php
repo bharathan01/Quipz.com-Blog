@@ -1,9 +1,7 @@
 <?php
 
-trait UploadBlog
-{
-    use Model;
-    public function uploadBolg($blogData)
+trait UpdateBlogData{
+    public function UpdateBolgData($blogData)
     {
         $heading = $blogData['heading'];
         $blogContent = $blogData['blogContent'];
@@ -11,13 +9,12 @@ trait UploadBlog
         $blogCategory = $blogData['blogCatagory'];
         $fileName = $blogImage['name'];
         $fileTmpName = $blogImage['tmp_name'];
-        $userId = $_SESSION['user_id'];
+        $blogId = $blogData['blogid'];
         $uploadImage = "C:/xampp/htdocs/MVC-frameWork/public/assets/images/".$fileName;
         move_uploaded_file($fileTmpName, $uploadImage);
-        $Query = "INSERT INTO blogs(heading, content, user_id, category_id,image) 
-          VALUES ('$heading','$blogContent',$userId,$blogCategory,'$fileName');";
+          $Query = "UPDATE blogs SET 
+          heading='$heading',content='$blogContent',category_id='$blogCategory',image='$fileName' WHERE blog_id = $blogId";
         $success = $this->insertIntoDb($Query);
         return $success;
     }
-    
 }
