@@ -22,6 +22,9 @@
   align-items: center;
   justify-content: center;
 }
+.bloge_image img{
+  height: 100%;
+}
 .auther_controlls{
   position: absolute;
   top: 0px;
@@ -38,16 +41,16 @@
     border: none;
     border-radius: 5px;
 }
-.auther_controlls button:nth-child(1):hover{
+.auther_controlls a button:nth-child(1):hover{
     background-color: rgb(2, 2, 98);
 }
-.auther_controlls button:nth-child(2):hover{
+.auther_controlls a button:nth-child(2):hover{
     background-color:rgb(115, 1, 1);
 }
-.auther_controlls button:nth-child(1){
+.auther_controlls a button:nth-child(1){
  background-color: blue;
 }
-.auther_controlls button:nth-child(2){
+.auther_controlls a button:nth-child(2){
     background-color:red;
 }
 .blog_content {
@@ -75,6 +78,8 @@
 .auther_image{
     width: 40px;
     height: 40px;
+    overflow: hidden;
+    cursor: pointer;
 }
 .auther_image img{
     width: 100%;

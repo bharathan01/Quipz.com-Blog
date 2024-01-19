@@ -4,33 +4,35 @@
   <body>
     <section class="single_blog">
       <div class="bloge_image">
-        <img src="<?= ROOT ?>/assets/images/<?= $data[0]['image'] ?>" alt="" srcset="" />
+        <img src="<?= ROOT ?>/assets/images/<?= $data['blogImage'] ?>" alt="blog image" srcset="" />
+        <?php if($_SESSION['user_id'] === $data['blogCreated']){ ?>
         <div class="auther_controlls">
-            <button>Delete</button>
-            <button>Update</button>
+            <a href=""><button>Delete</button></a>
+            <a href=""><button>Update</button></a>
         </div>
+        <?php }?>
       </div>
       <div class="who_wrote">
         <div class="auther">
             <div class="auther_image">
-                <img src="" alt="" srcset="">
+                <img src="<?= ROOT ?>/assets/images/<?= $data['userProfileImage'] ?>" alt="" srcset="">
             </div>
-            <span>name of the auther</span>
+            <a href=""><span><?= $data['creatorName'] ?></span></a>
             <div class="follow">
                 <button>Follow</button>
             </div>
         </div>
         <div class="posted">
-            <span><?= $data[0]['created_at'] ?></span>
+            <span><?= $data['blogcratedAt'] ?></span>
         </div>
 
       </div>
       <div class="blog_content">
         <div class="blog_heading">
-            <h1><?= $data[0]['heading'] ?></h1>
+            <h1><?= $data['heading'] ?></h1>
         </div>
         <div class="blog_writeup">
-          <p><?= $data[0]['content'] ?></p>
+          <p><?= $data['content'] ?></p>
         </div>
       </div>
       <div class="blog_recommended">
