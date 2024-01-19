@@ -37,12 +37,17 @@ class UpdateBlog extends Controller{
             $heading = $_POST['heading'];
             $blogCatagory = $_POST['selectCatagory'];
             $uploadedFile = $_FILES['blog_image'];
+            if( $_FILES['blog_image']['name'] == null){
+                $uploadedFile = $_SESSION['blogImage'];
+            }
             $blogData =  ['heading' =>$heading,
                             'blogContent' => $blogContent,
                             'uploadedFile' => $uploadedFile,
                             'blogCatagory' => $blogCatagory,
                             'blogid' => $_GET['id']
                             ];
+
+            //  print_r($blogData);               
              $result = $this->UpdateBolgData($blogData);
              if($result){
                 $location = "blog?id=".$_GET['id'];
@@ -56,6 +61,7 @@ class UpdateBlog extends Controller{
         $userId = $_GET['id'];
         $blogData = $this->getSingleBlog($userId);
         $category =  $this->dataFromDB();
+        $_SESSION['blogImage'] = $blogData[0]['image'];
         $updateBlogData = [
             'heading' => $blogData[0]['heading'],
             'content' => $blogData[0]['content'],
@@ -70,4 +76,8 @@ class UpdateBlog extends Controller{
     }
 } 
 $data = new UpdateBlog();
+if(isset($_POST['uploadBlog'])){
 $data->sendDataToServer();
+}
+
+

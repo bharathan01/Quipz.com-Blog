@@ -5,13 +5,16 @@ trait UpdateBlogData{
     {
         $heading = $blogData['heading'];
         $blogContent = $blogData['blogContent'];
-        $blogImage = $blogData['uploadedFile'];
         $blogCategory = $blogData['blogCatagory'];
-        $fileName = $blogImage['name'];
-        $fileTmpName = $blogImage['tmp_name'];
+        $blogImage = $blogData['uploadedFile'];
+        if(is_array($blogImage)){
+            $fileName = $blogImage['name'];
+            $fileTmpName = $blogImage['tmp_name'];
+            $uploadImage = "C:/xampp/htdocs/MVC-frameWork/public/assets/images/".$fileName;
+            move_uploaded_file($fileTmpName, $uploadImage);
+        }
+        $fileName = $blogImage;
         $blogId = $blogData['blogid'];
-        $uploadImage = "C:/xampp/htdocs/MVC-frameWork/public/assets/images/".$fileName;
-        move_uploaded_file($fileTmpName, $uploadImage);
           $Query = "UPDATE blogs SET 
           heading='$heading',content='$blogContent',category_id='$blogCategory',image='$fileName' WHERE blog_id = $blogId";
         $success = $this->insertIntoDb($Query);
