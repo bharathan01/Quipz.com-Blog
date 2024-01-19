@@ -1,4 +1,4 @@
-<!-- <?php include '../app/views/header.view.php' ?> -->
+
   <link rel="stylesheet" href="<?= ROOT ?>/assets/css/profile.css">
 
 <body>
@@ -7,8 +7,8 @@
     <div class="content">
       <div class="content__cover">
         <div class="content__avatar">
-          <?php if(!$_SESSION['profileimage'] ==  ''){ ?> 
-          <img src="<?= ROOT ?>/assets/images/<?= $_SESSION['profileimage'] ?>" alt="">
+          <?php if(!$data['profileimage'] ==  ''){ ?> 
+          <img src="<?= ROOT ?>/assets/images/<?= $data['profileimage'] ?>" alt="">
           <?php }else{?>
             <img src="<?= ROOT ?>/assets/images/profile.png" alt="">
             <?php } ?>
@@ -16,6 +16,7 @@
         <div class="content__bull"><span></span><span></span><span></span><span></span><span></span>
         </div>
       </div>
+      <?php if($_SESSION['user_id'] === $data['userId']) { ?>
       <div class="content__actions"><a href="editProfile">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
             <path fill="currentColor" d="M192 256A112 112 0 1 0 80 144a111.94 111.94 0 0 0 112 112zm76.8 32h-8.3a157.53 157.53 0 0 1-68.5 16c-24.6 0-47.6-6-68.5-16h-8.3A115.23 115.23 0 0 0 0 403.2V432a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48v-28.8A115.23 115.23 0 0 0 268.8 288z"></path>
@@ -25,22 +26,25 @@
             <path fill="currentColor" d="M493.1 54.9c-17.8-17.8-46.7-17.8-64.5 0L84.3 363.1c-2.6 2.6-4.7 7.1-4.3 10.5l17.6 135.1c.4 3.4 3.1 6.1 6.5 6.5l135.1 17.6c3.4.4 7.9-1.7 10.5-4.3L493.1 119.4c17.9-17.8 17.9-46.7 0-64.5zM138.3 472.2L107.1 408l43.9-43.9 64.2 64.2-43.9 43.9zM422.7 128.8L161.9 389.7l-27.3-27.3L395.4 101.5c7.5-7.5 19.8-7.5 27.3 0 3.8 3.8 5.9 8.9 5.9 14.2s-2.1 10.4-5.9 14.2c-1.9 1.9-4.1 3.3-6.5 4.8z"></path>
           </svg>
           <span>Edit Profile</span></a></div>
+          <?php }?>
       <div class="content__title">
-        <h1><?php echo $_SESSION['name'] ?></h1>
+        <h1><?php echo $data['name'] ?></h1>
       </div>
       <div class="content__description">
-        <p><?php echo $_SESSION['bio'] ?></p>
+        <p><?php echo $data['bio'] ?></p>
       </div>
       <ul class="content__list">
         <li><span>65</span>Followers</li>
         <li><span>43</span>Following</li>
         <li><span>21</span>Blogs</li>
       </ul>
+      <?php if($_SESSION['user_id'] === $data['userId']) { ?>
       <div class="content__button"><a class="button" href="createblog">
           <div class="button__border"></div>
           <div class="button__bg"></div>
           <p class="button__text">CREATE BOLG</p>
         </a></div>
+      <?php } ?>
     </div>
     <div class="bg">
       <div><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
@@ -68,7 +72,7 @@
       <div class="blog_content">
         <?php
         if($data){
-        foreach($data as $blogs) {?>
+        foreach($data['blogData'] as $blogs) {?>
           <a href="blog?id=<?=$blogs['blog_id']?>">
             <div class="single_blog">
               <div class="blog_img">

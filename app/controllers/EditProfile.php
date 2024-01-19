@@ -55,7 +55,7 @@ class EditProfile extends Controller
                     $_SESSION['username'] = $updateProfile['username'];
                     $_SESSION['profileimage']  = $profileImageName;
                     $_SESSION['bio'] = $updateProfile['bio'];
-                    $_SESSION['email'] = $updateProfile['email'];
+                    $_SESSION['*'] = $updateProfile['email'];
                     header("location: profile"); 
                 }
             }else{

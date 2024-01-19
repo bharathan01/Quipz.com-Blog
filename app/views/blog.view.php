@@ -8,7 +8,7 @@
         <?php if($_SESSION['user_id'] === $data['blogCreated']){ ?>
         <div class="auther_controlls">
             <a href=""><button>Delete</button></a>
-            <a href=""><button>Update</button></a>
+            <a href="updateBlog?id=<?=$data['blogId']?>"><button>Update</button></a>
         </div>
         <?php }?>
       </div>
@@ -17,7 +17,7 @@
             <div class="auther_image">
                 <img src="<?= ROOT ?>/assets/images/<?= $data['userProfileImage'] ?>" alt="" srcset="">
             </div>
-            <a href=""><span><?= $data['creatorName'] ?></span></a>
+            <a href="profile?id=<?=$data['blogCreated']?>"><span><?= $data['creatorName'] ?></span></a>
             <div class="follow">
                 <button>Follow</button>
             </div>

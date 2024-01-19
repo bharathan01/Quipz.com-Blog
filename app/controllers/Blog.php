@@ -14,7 +14,8 @@ class Blog extends Controller{
             'content' => $result[0]['content'],
             'blogImage' => $result[0]['image'],
             'blogcratedAt' =>$result[0]['created_at'],
-            'userProfileImage' =>$userData['profileimage']
+            'userProfileImage' =>$userData['profileimage'],
+            'blogId' => $result[0]['blog_id']
         ];
         return $blogData;
     }
