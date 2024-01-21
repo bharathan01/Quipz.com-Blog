@@ -6,6 +6,3 @@ class Home extends Controller{
     }
 } 
 $home = new Home();
-if(isset($_POST['logout'])){
-    header("location:signin");
-}

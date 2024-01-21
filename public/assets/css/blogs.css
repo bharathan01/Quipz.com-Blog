@@ -1,0 +1,41 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+section{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.blog-container{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 33px;
+}
+a{
+    text-decoration: none;
+    color: white;
+    font-family:sans-serif;
+}
+.single-blog{
+    width: 200px;
+    height: 230px;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 25px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.single-blog img{
+    width: 100%;
+    height: 60%;
+}
+.single-blog h6{
+    margin: 4px;
+    overflow-wrap:anywhere;
+}

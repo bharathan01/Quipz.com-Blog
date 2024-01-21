@@ -55,8 +55,8 @@
                 </div>
                 <div class="nav-container" id="nav-container">
                     <ul class="nav_link_element">
-                        <a href="">
-                            <li>Top blogs</li>
+                        <a href="allblogs">
+                            <li>All blogs</li>
                         </a>
                         <a href="">
                             <li>Featured</li>
