@@ -58,35 +58,35 @@
                         <a href="allblogs">
                             <li>All blogs</li>
                         </a>
-                        <a href="">
+                        <a href="allblogs">
                             <li>Featured</li>
                         </a>
                         <a href="">
                             <li>Top news</li>
                         </a>
-                        <a href="">
+                        <a href="allblogs?id=1006">
                             <li>Business</li>
                         </a>
-                        <a href="">
+                        <a href="allblogs?id=1007">
                             <li>Food</li>
                         </a>
-                        <a href="">
+                        <a href="allblogs?id=1005">
                             <li>Lifestyle</li>
                         </a>
-                        <a href="">
+                        <a href="allblogs?id=1004">
                             <li>Technology</li>
                         </a>
-                        <a href="">
+                        <a href="allblogs?id=1003">
                             <li>Economy</li>
                         </a>
-                        <a href="">
+                        <a href="allblogs?id=1002">
                             <li>International</li>
                         </a>
-                        <a href="">
+                        <a href="allblogs?id=1001">
                             <li>National</li>
                         </a>
-                        <a href="">
-                            <li>Current</li>
+                        <a href="allblogs?id=1000">
+                            <li>Current Affairs</li>
                         </a>
                     </ul>
                     <div class="social_media">

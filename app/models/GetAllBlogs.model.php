@@ -5,4 +5,8 @@ trait GetAllBlogs{
         $Query = "SELECT * FROM blogs;";
         return $this->getCategoryFromDb($Query);
     }
+    public function getCatagoryBlogs($catagoryId){
+        $Query = "SELECT * FROM blogs WHERE category_id = $catagoryId;";
+        return $this->getCategoryFromDb($Query);
+    }
 } 

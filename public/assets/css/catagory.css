@@ -19,7 +19,6 @@
   }
   .category_div{
     width: 100%;
-    height: 250px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -52,14 +51,17 @@
     overflow-x: scroll;
     padding: 0 10px 0 10px;
   }
-  .category_container a{
-    min-width: 250px;
-  }
   .category_container::-webkit-scrollbar{
     display: none;
   }
+  .category_container a{
+    min-width: 200px;
+  }
+  /* .category_container::-webkit-scrollbar{
+    display: none;
+  } */
   .container_div{
-    min-width: 250px;
-    height: 150px;
+    width: 200px;
+    height: 250px;
     background-color: #ab1b1b;
   }
