@@ -3,6 +3,9 @@ require "../app/models/Signin.model.php";
 class Signin extends Controller {
     use SigninModel;
     public $data;
+    public function isLogedin(){
+        session_destroy();
+    }
     private function formDataValidation()
     {
         $error = [];
@@ -50,3 +53,6 @@ class Signin extends Controller {
 }
 $form = new Signin();
 $form->sanitizeInputField();
+if(isset($_SESSION['user_id'])){
+    $form->isLogedin();
+}

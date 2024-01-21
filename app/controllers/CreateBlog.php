@@ -45,8 +45,8 @@ class CreateBlog extends Controller
                             ];
             $result =  $this->uploadBolg($blogData);
             if($result){
-                echo "<p>okk</p>";
-                header("location:profile");
+                $location =$_SESSION['user_id'];
+                header("location:profile?id=".$location);
             }            
     }
 }
