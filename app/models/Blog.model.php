@@ -12,11 +12,14 @@ trait Blogs{
        return $result;
     }
     public function addCommentToDb($commentData){
-        print_r($commentData);
        $userId = $commentData['userId'];
        $blogId = $commentData['blogId'];
        $comment = $commentData['comment']; 
        $Query = "INSERT INTO comments(user_id, blog_id, content) VALUES ($userId,$blogId,'$comment');";
+        return $this->getCategoryFromDb($Query);
+    }
+    public function getAllCommentsFromDB($blogId){
+        $Query = "SELECT * FROM comments WHERE blog_id = $blogId;";
         return $this->getCategoryFromDb($Query);
     }
 }

@@ -35,6 +35,55 @@
           <p><?= $data['content'] ?></p>
         </div>
       </div>
+      <section class="comment" id="comment">
+        <div class="comment-container">
+          <h1>COMMENTS</h1>
+          <div class="add-comment">
+            <form action="" method="POST">
+              <img
+                class="comment-profile"
+                src="https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg"
+                alt=""
+              />
+              <textarea name="comment" id="comment" oninput="wrapTheText(this)" placeholder="add your comment.." cols="30" rows="10"></textarea>
+              </textarea>
+              <button type="submit" name="add"><ion-icon name="send-outline"></ion-icon></button>
+            </form>
+          </div>
+          <div class="added-comment">
+            <div class="prifle-details">
+              <a
+                ><img
+                  class="comment-profile"
+                  src="https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg"
+                  alt=""
+              /></a>
+              <div class="profile-name">
+                <h5>Name of aaa</h5>
+                <span>12/12/2003</span>
+              </div>
+              <div class="comment-like"><ion-icon name="heart-outline"></ion-icon></div>
+            </div>
+            <p>
+              Repudiandae hic labore quae temporibus maiores similique deleniti
+              laboriosam vero delectus recusandae voluptatibus ipsa, enim
+              consequatur dolorum consequuntur facere tenetur nihil consectetur
+              explicabo dolores a. Amet porro beatae alias cumque accusamus nisi
+              aliquam deleniti sed officiis dolore repellat expedita ipsam
+              dolores modi sapiente aperiam aliquid doloremque, corporis
+              distinctio, nesciunt soluta. Laboriosam nesciunt ad maxime quia
+              delectus amet velit? Excepturi tempore quibusdam illo accusantium
+              doloribus dolor debitis distinctio voluptatibus.
+            </p>
+            <div class="comment-control">
+              <a href=""><h4>Edit</h4></a>
+              <a href=""><h4>Delete</h4></a>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
       <div class="blog_recommended">
         <div class="recommended_heading">
             <h1>recommended</h1>
@@ -113,6 +162,6 @@
         </div>
       </div>
     </section>
-    <!-- <script src="<?= ROOT ?>/assets/js/.js"></script> -->
+    <script src="<?= ROOT ?>/assets/js/singleblog.js"></script>
   </body>
   <?php require '../app/views/footer.view.php' ?>
