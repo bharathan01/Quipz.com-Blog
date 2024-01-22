@@ -2,7 +2,7 @@
 
 <section class="sixth_page">
   <div class="category">
-    <?php foreach ($data as $catagoryName => $blogs) { ?>
+    <?php foreach ($data['filteredData'] as $catagoryName => $blogs) { ?>
       <?php if ($blogs) { ?>
         <div class="category_div category_lifestyle">
           <div class="category_heading">

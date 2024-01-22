@@ -34,7 +34,7 @@
     padding: 5px;
   }
   .news_container{
-    width: 60%;
+    width: 80%;
     height: auto;
     display: grid;
     grid-template-columns: repeat(3,1fr);
@@ -53,10 +53,10 @@
   .sub_news img{
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
   }
   .sub_news p{
-    font-size: 10px;
+    font-size: 13px;
     font-family: var(--font-family);
   }
   .sub_news p span{
@@ -111,4 +111,7 @@
     .sub_news{
         grid-column: 1/4;
     }
+  }
+  .readNews{
+    color: blue;
   }

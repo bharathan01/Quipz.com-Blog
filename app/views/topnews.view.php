@@ -1,79 +1,32 @@
 
 <link rel="stylesheet" href="<?= ROOT?>/assets/css/topnews.css">
-
-<section class="fifth_page">
+<section class="fifth_page" id="topnews">
     <div class="top_news">
         <div class="top_news_heading">
             <h2>TOP NEWS</h2>
-            <button>See more</button>
+            <a href="<?=$data['topNews'][0]['url'] ?>"> <button>See more</button></a>
         </div>
         <div class="news_container">
-            <a href="">
+            <a href="<?=$data['topNews'][0]['url'] ?>">
                 <div class="main_news">
-                    <img src="<?= ROOT ?>/assets/images/landing-img.jpg" alt="" />
+                    <img src="<?=$data['topNews'][0]['urlToImage'] ?>" alt="" />
                     <h3>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                        Accusantium, explicabo.
+                        <?=$data['topNews'][0]['title']?>
                     </h3>
                 </div>
             </a>
+            <?php $startingPosition = 2; 
+              $subArray = array_slice($data['topNews'],$startingPosition); 
+              foreach($subArray as $id => $news){?>
             <div class="sub_news">
-                <img src="<?= ROOT ?>/assets/images/img-1.jpg" alt="" />
+                <img src="<?=$subArray[$id]['urlToImage'] ?>" alt="" />
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-                    expedita.<br />
-                    <span>12 Aug 2023 10:24PM</span>
+                <?=$subArray[$id]['title'] ?>
+                <a class="readNews" href="<?=$subArray[$id]['url'] ?>"> - READ</a>
                 </p>
+                
             </div>
-            <div class="sub_news">
-                <img src="<?= ROOT ?>/assets/images/img-2.jpg" alt="" />
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-                    expedita.
-                </p>
-            </div>
-            <div class="sub_news">
-                <img src="<?= ROOT ?>/assets/images/img-4.jpg" alt="" />
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-                    expedita.
-                </p>
-            </div>
-            <div class="sub_news">
-                <img src="<?= ROOT ?>/assets/images/img-3.jpg" alt="" />
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-                    expedita.
-                </p>
-            </div>
-            <div class="sub_news">
-                <img src="<?= ROOT ?>/assets/images/img-2.jpg" alt="" />
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-                    expedita.
-                </p>
-            </div>
-            <div class="sub_news">
-                <img src="<?= ROOT ?>/assets/images/img-1.jpg" alt="" />
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-                    expedita.
-                </p>
-            </div>
-            <div class="sub_news">
-                <img src="<?= ROOT ?>/assets/images/img-4.jpg" alt="" />
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-                    expedita.
-                </p>
-            </div>
-            <div class="sub_news">
-                <img src="<?= ROOT ?>/assets/images/img-3.jpg" alt="" />
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur,
-                    expedita.
-                </p>
-            </div>
+            <?php } ?>
         </div>
     </div>
 </section>

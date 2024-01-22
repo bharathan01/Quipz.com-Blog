@@ -16,7 +16,26 @@ class Home extends Controller
                 return $blog['category_id'] === $categoryId;
             });
         }
-        return $filteredData;
+        $topNews = $this->getTopNews();
+        $data = [
+             'filteredData' => $filteredData,
+             'topNews' => $topNews
+        ];
+        return $data;
+    }
+    public function getTopNews()
+    {
+        $apiUrl =  'https://newsapi.org/v2/top-headlines?country=us&apiKey=6bc8abc0c59448398611dd71b598c9e1';
+        $ch = curl_init($apiUrl);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_USERAGENT, 'localhost');
+        $response = curl_exec($ch);
+        if (curl_errno($ch)) {
+            echo 'Curl error: ' . curl_error($ch);
+        }
+        curl_close($ch);
+        $data = json_decode($response, true);
+        return $data['articles'];
     }
     public function index()
     {
@@ -24,4 +43,5 @@ class Home extends Controller
     }
 }
 $home = new Home();
+$home->getTopNews();
 $home->getCatagoryViseBlog();

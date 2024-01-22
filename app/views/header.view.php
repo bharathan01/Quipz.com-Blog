@@ -61,7 +61,7 @@
                         <a href="#featured">
                             <li>Featured</li>
                         </a>
-                        <a href="">
+                        <a href="#topnews">
                             <li>Top news</li>
                         </a>
                         <a href="allblogs?id=1006">
