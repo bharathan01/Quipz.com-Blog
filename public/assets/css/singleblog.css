@@ -268,10 +268,10 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 25px;
 }
 .added-comment p{
   width: 90%;
-  margin-top: 12px;
   overflow-wrap: anywhere;
 }
 .comment-like{

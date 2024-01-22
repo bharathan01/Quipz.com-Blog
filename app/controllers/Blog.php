@@ -9,6 +9,7 @@ class Blog extends Controller
         $result = $this->getSingleBlog($blogId);
         $blogCreatorId = $result[0]['user_id'];
         $userData =  $this->getBlogcreatorData($blogCreatorId);
+        $commentData = $this->getCommentData($blogId);
         $blogData = [
             'blogCreated' => $userData['user_id'],
             'creatorName' => $userData['username'],
@@ -17,7 +18,8 @@ class Blog extends Controller
             'blogImage' => $result[0]['image'],
             'blogcratedAt' => $result[0]['created_at'],
             'userProfileImage' => $userData['profileimage'],
-            'blogId' => $result[0]['blog_id']
+            'blogId' => $result[0]['blog_id'],
+            'comment' => $commentData
         ];
         return $blogData;
     }
@@ -32,10 +34,10 @@ class Blog extends Controller
             $result = $this->addCommentToDb($commentData);
         }
     }
-    public function getComment()
+    public function getCommentData($blogId)
     {
-        $result = $this->getAllCommentsFromDB($_GET['id']);
-        print_r($result);
+        $commentData = $this->getAllCommentsFromDB($blogId);
+        return $commentData;
     }
     public function index()
     {
@@ -43,7 +45,6 @@ class Blog extends Controller
     }
 }
 $blog = new Blog();
-$blog->getComment();
 if (isset($_POST['add'])) {
     $blog->addComment();
 }

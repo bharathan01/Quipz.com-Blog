@@ -58,7 +58,7 @@
                         <a href="allblogs">
                             <li>All blogs</li>
                         </a>
-                        <a href="allblogs">
+                        <a href="#featured">
                             <li>Featured</li>
                         </a>
                         <a href="">

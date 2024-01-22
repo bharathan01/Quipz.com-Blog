@@ -19,7 +19,23 @@ trait Blogs{
         return $this->getCategoryFromDb($Query);
     }
     public function getAllCommentsFromDB($blogId){
-        $Query = "SELECT * FROM comments WHERE blog_id = $blogId;";
+        $userId = $_SESSION['user_id'];
+        $Query = "SELECT
+        c.comment_id,
+        c.blog_id,
+        c.content,
+        c.created_at,
+        u.user_id,
+        u.name,
+        u.profileimage
+    FROM
+        comments as c
+    JOIN
+        users as u ON c.user_id = u.user_id
+    WHERE
+        c.blog_id = $blogId
+    ORDER BY
+        c.created_at DESC;";
         return $this->getCategoryFromDb($Query);
     }
 }

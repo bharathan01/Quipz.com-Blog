@@ -1,6 +1,6 @@
 
 <link rel="stylesheet" href="<?= ROOT ?>/assets/css/topblogs.css">
-<section class="thired_page">
+<section class="thired_page" id="featured">
     <div class="bloges">
         <div class="top_blog">
             <div class="top_blog_heading">
