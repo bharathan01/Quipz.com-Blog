@@ -19,8 +19,21 @@ class Blog extends Controller{
         ];
         return $blogData;
     }
+    public function addComment(){
+          if(isset($_POST['comment'])){
+            $commentData = [
+                'blogId'=> $_GET['id'],
+                'userId'=> $_SESSION['user_id'],
+                'comment' => $_POST["comment"]
+            ];
+            $this->addCommentToDb($commentData);
+          }
+    }
     public function index(){
         $this->view('blog',$this->getBlog());
     }
 } 
 $blog = new Blog();
+if(isset($_POST['add'])){
+    $blog->addComment();
+}
