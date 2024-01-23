@@ -20,7 +20,7 @@
         </div>
         <a href="profile?id=<?= $data['blogCreated'] ?>"><span><?= $data['creatorName'] ?></span></a>
         <div class="follow">
-          <button>Follow</button>
+          <button id="follow" class="following">Follow</button>
         </div>
       </div>
       <div class="posted">
@@ -156,6 +156,10 @@
       </div>
     </div> -->
   </section>
+  <script>
+    let followingId = "<?php echo $data['blogCreated'] ;?>"
+    let followerId = "<?php echo $_SESSION['user_id'];?>"
+    </script>
   <script src="<?= ROOT ?>/assets/js/singleblog.js"></script>
 </body>
 <?php require '../app/views/footer.view.php' ?>

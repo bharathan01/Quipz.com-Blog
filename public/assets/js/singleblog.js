@@ -2,15 +2,17 @@ function wrapTheText(element) {
     element.style.height = "auto";
     element.style.height = (element.scrollHeight) + "px";
     if (element.value.length === 0) {
-        element.style.height = 40 + "px"; // Set back to the minimum height
+        element.style.height = 40 + "px"; 
       }
-  }
-  document.querySelector('.comment-like').addEventListener('click' ,()=>{
-    if(document.querySelector('.comment-like').style.color == 'red'){
-        document.querySelector('.comment-like').style.color = 'black';
-    }
-    else{
-        document.querySelector('.comment-like').style.color = 'red';
-    }
-     
-  })
+  }  
+followBtn = document.getElementById("follow")
+      followBtn.addEventListener('click' ,()=>{
+        isFollowing = followBtn.classList.contains('followed')
+        if(isFollowing){
+            followBtn.innerHTML = 'Follow'
+        }else{
+            followBtn.innerHTML = 'Following'
+        }
+        followBtn.classList.toggle('followed')
+    })
+    
