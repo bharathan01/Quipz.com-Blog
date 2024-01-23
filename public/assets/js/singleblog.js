@@ -4,7 +4,14 @@ function wrapTheText(element) {
     if (element.value.length === 0) {
         element.style.height = 40 + "px"; 
       }
-  }  
+  } 
+  
+  
+function sentData(){
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST',)
+}
+
 followBtn = document.getElementById("follow")
       followBtn.addEventListener('click' ,()=>{
         isFollowing = followBtn.classList.contains('followed')
@@ -15,4 +22,16 @@ followBtn = document.getElementById("follow")
         }
         followBtn.classList.toggle('followed')
     })
-    
+const like = document.getElementById('like')
+
+like.addEventListener('click',()=>{
+    isLIke = like.classList.contains('like')
+    if(isLIke){
+        
+    }
+    else{
+
+    }
+    like.classList.toggle('like')
+
+})

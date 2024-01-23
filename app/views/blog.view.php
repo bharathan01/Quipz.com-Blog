@@ -24,9 +24,15 @@
         </div>
       </div>
       <div class="posted">
+        <div class="user_intraction"><a ><ion-icon  name="thumbs-up"id="like"></ion-icon></a>
+        <h5 id="like_count">0</h5>
+         </div>
+        <div class="user_intraction"><a href="#comment"><ion-icon name="chatbox"></ion-icon></a>
+        <h5 id="comment_count">0</h5>
+        </div>
+        <div class="user_intraction"><a href=""><ion-icon name="share-social"></ion-icon></a></div>
         <span><?= $data['blogcratedAt'] ?></span>
       </div>
-
     </div>
     <div class="blog_content">
       <div class="blog_heading">
@@ -158,6 +164,7 @@
   </section>
   <script>
     let followingId = "<?php echo $data['blogCreated'] ;?>"
+    let followingId = "<?php echo $data['blogId'] ;?>"
     let followerId = "<?php echo $_SESSION['user_id'];?>"
     </script>
   <script src="<?= ROOT ?>/assets/js/singleblog.js"></script>

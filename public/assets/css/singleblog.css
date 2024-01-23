@@ -63,14 +63,14 @@
 }
 .who_wrote{
     width: 90%;
-    height: 100px;
+    height: 120px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 .auther{
     width: 50%;
-    height: 100px;
+    height: 120px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -99,6 +99,18 @@
   background-color: rgb(255, 255, 255);
   color: blue;
   border: 1px solid blue;
+}
+
+.user_intraction{
+  width: 50px;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.like{
+  color: blue;
 }
 .posted{
     width: 50%;
@@ -178,7 +190,7 @@
 @media(max-width:600px){
     .auther{
         font-size: 10px;
-        height: 50px;
+        height: 60px;
         width: 90%;
         margin-top: 20px;
     }
@@ -192,7 +204,7 @@
         flex-direction: column;
     }
     .posted{
-        height: 30px;
+        height: 43px;
         width: 80%;
         justify-content: start;
     }
