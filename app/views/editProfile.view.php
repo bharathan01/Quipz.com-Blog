@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/editProfile.css">
-</head>
+<?php include '../app/views/header.view.php' ?>
+<link rel="stylesheet" href="<?= ROOT ?>/assets/css/editProfile.css">
 <body>
     <section class="profile">
         <div class="profile_container">
@@ -19,7 +13,7 @@
                 <div class="profile_details">
                    <input type="file" hidden id="profile_input" name="profileImage">
                     <label for="name">Name</label>
-                    <input type="text" value="<?=$data['name'] ?>" name="name" id="name">
+                    <input type="text" value="<?php echo $data['name'] ?>" name="name" id="name">
                     <label for="username">User Name</label>
                     <input type="text" value="<?=$data['username'] ?>" name="username" id="username">
                     <label for="email" >Email</label>
@@ -33,4 +27,4 @@
     </section>
     <script src="<?= ROOT ?>/assets/js/editProfile.js"></script>
 </body>
-</html>
+<?php require '../app/views/footer.view.php' ?>

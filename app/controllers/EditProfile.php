@@ -60,14 +60,13 @@ class EditProfile extends Controller
             }
         }
     }
-    public function getUserData(){
+    public function getUserDataForUpdate(){
        $userId = $_GET['id'];
-       $r =  $this->getUserData($userId);
-       print_r($r);    
+       return $this->getUserData($userId);  
     }
     public function index()
     {
-        $this->view('editProfile', $this->getUserData());
+        $this->view('editProfile', $this->getUserDataForUpdate());
     }
 }
 $edit = new EditProfile();
