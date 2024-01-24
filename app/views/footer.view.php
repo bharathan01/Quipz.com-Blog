@@ -1,8 +1,9 @@
 
 <link rel="stylesheet" href="<?= ROOT ?>/assets/css/footer.css">
 <footer class="footer-distributed">
+<h3>Quipz.com</h3>
     <div class="footer-left">
-        <h3>Company<span>logo</span></h3>
+        
 
         <p class="footer-links">
             <a href="#" class="link-1">Home</a>
@@ -39,10 +40,10 @@
         </p>
 
         <div class="footer-icons">
-            <a href="#"><ion-icon name="mail-outline"></ion-icon></a>
-            <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
-            <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
-            <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+            <a href="#"><ion-icon class="social_link" name="mail-outline"></ion-icon></a>
+            <a href="#"><ion-icon class="social_link" name="logo-facebook"></ion-icon></a>
+            <a href="#"><ion-icon class="social_link" name="logo-instagram"></ion-icon></a>
+            <a href="#"><ion-icon class="social_link" name="logo-twitter"></ion-icon></a>
         </div>
     </div>
     <div class="footer_copy_right">

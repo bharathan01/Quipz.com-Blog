@@ -7,9 +7,20 @@ function wrapTheText(element) {
   } 
   
   
-function sentData(){
+function sentData(followerId,followingId){
+    console.log("ok");
     let xhr = new XMLHttpRequest();
-    xhr.open('POST',)
+    xhr.open('POST','Blog.php',true)
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    var data = 'user_id=' + encodeURIComponent(followerId) + '&blog_id=' + encodeURIComponent(followingId);
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            console.log(xhr.responseText);
+        }
+    };
+
+    xhr.send(data);
 }
 
 followBtn = document.getElementById("follow")
@@ -19,6 +30,7 @@ followBtn = document.getElementById("follow")
             followBtn.innerHTML = 'Follow'
         }else{
             followBtn.innerHTML = 'Following'
+            sentData(followerId,followingId);
         }
         followBtn.classList.toggle('followed')
     })

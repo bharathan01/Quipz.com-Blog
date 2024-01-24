@@ -144,7 +144,7 @@
       height: 80px;
     }
     .resent_blog{
-      width: 80%;
+      width: 90%;
       align-self: center;
       margin-bottom: 55px;
       height: auto;
@@ -154,5 +154,19 @@
     }
     .resent_content_box{
       height: 80px;
+    }
+    .top_bolg_box{
+      width: 300px;
+    }
+    .blog_read_box{
+      justify-content: space-between;
+      margin-top: 20px;
+      padding: 10px;
+    }
+    .top_blog_content{
+      gap: 15px;
+    }
+    .resent_heading h3{
+      font-size: 20px;
     }
   }

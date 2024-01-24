@@ -12,7 +12,8 @@ trait UploadBlog
         $fileName = $blogImage['name'];
         $fileTmpName = $blogImage['tmp_name'];
         $userId = $_SESSION['user_id'];
-        $uploadImage = "C:/xampp/htdocs/MVC-frameWork/public/assets/images/".$fileName;
+        // $uploadImage = "C:/xampp/htdocs/MVC-frameWork/public/assets/images/".$fileName;
+        $uploadImage = "../public/assets/images/".$fileName;
         move_uploaded_file($fileTmpName, $uploadImage);
         $Query = "INSERT INTO blogs(heading, content, user_id, category_id,image) 
           VALUES ('$heading','$blogContent',$userId,$blogCategory,'$fileName');";

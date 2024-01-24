@@ -249,32 +249,37 @@ html {
     width: 40%;
   }
   .search_box.active {
-    display: 3px;
-  }
-  .login_btn,
-  .sign_up {
-    display: none;
-  }
-  .nav-logo {
-    justify-content: center;
+    top: 3px;
   }
   .nav-container {
     display: none;
   }
-  /* .nav-link {
-    position: absolute;
-  } */
+  .nav-logo-ul{
+    justify-content:start;
+  }
+  .nav-logo ul a{
+    font-size: 22px;
+  }
+  .profile_drop_down .drop-down.closed{
+    right: 0px;
+  }
+  .log-icon{
+    font-size: 27px;
+    width: 30px;
+  }
   .nav_link_element {
     display: grid;
-    margin-top: 20px;
+    margin-top: 40px;
     padding: 0px;
     margin-left: 0px;
     background-color: black;
     z-index: 3;
+    width: 100%;
   }
   .social_media {
     margin-top: 20px;
     justify-content: center;
+    height: 40px;
   }
   .social_media_icon {
     display: flex;
@@ -299,6 +304,11 @@ html {
     position: absolute;
     top: -7px;
   }
+  .nav-link ul a{
+    width: 100%;
+    justify-content: center;
+  }
+
   .hand_Burger span:nth-child(1) {
     transition: ease 0.4s;
   }

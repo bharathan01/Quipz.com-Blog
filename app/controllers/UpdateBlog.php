@@ -46,8 +46,7 @@ class UpdateBlog extends Controller{
                             'blogCatagory' => $blogCatagory,
                             'blogid' => $_GET['id']
                             ];
-
-            //  print_r($blogData);               
+             
              $result = $this->UpdateBolgData($blogData);
              if($result){
                 $location = "blog?id=".$_GET['id'];

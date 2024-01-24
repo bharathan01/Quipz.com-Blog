@@ -8,7 +8,7 @@
         <div class="drag_area" id="drag_area">
             <ion-icon class="icon" name="cloud-upload-outline"></ion-icon>
             <p class="drop">Drag & Drop Image</p>
-            <p class="open_file">Browse image</p>
+            <p class="open_file">click to upload image</p>
             <span class="support">Supports PNG, JPG, JPEG</span>
             <span class="invaild_img">File Not supported..!</span>
         </div>

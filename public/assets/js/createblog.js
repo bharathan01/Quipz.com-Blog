@@ -4,7 +4,7 @@ const openFile = document.querySelector(".open_file");
 
 let file;
 
-openFile.onclick = () => {
+drageArea.onclick = () => {
   browseInput.click();
 };
 browseInput.addEventListener("change", () => {

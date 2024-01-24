@@ -5,7 +5,8 @@
 <body>
   <section class="single_blog">
     <div class="bloge_image">
-      <img src="<?= ROOT ?>/assets/images/<?= $data['blogImage'] ?>" alt="blog image" srcset="" />
+      <!-- <img src="<?= ROOT ?>/assets/images/<?= $data['blogImage'] ?>" alt="blog image" srcset="" /> -->
+      <img src="http://localhost/MVC-frameWork/app/models/uploads/shameer.jpg" alt="">
       <?php if ($_SESSION['user_id'] === $data['blogCreated']) { ?>
         <div class="auther_controlls">
           <a href=""><button>Delete</button></a>
@@ -30,8 +31,9 @@
         <div class="user_intraction"><a href="#comment"><ion-icon name="chatbox"></ion-icon></a>
         <h5 id="comment_count">0</h5>
         </div>
-        <div class="user_intraction"><a href=""><ion-icon name="share-social"></ion-icon></a></div>
-        <span><?= $data['blogcratedAt'] ?></span>
+        <div class="user_intraction"><a href=""><ion-icon name="share-social"></ion-icon></a>
+        <h5 id="like_count">0</h5></div>
+        <!-- <span><?= $data['blogcratedAt'] ?></span> -->
       </div>
     </div>
     <div class="blog_content">
@@ -164,7 +166,7 @@
   </section>
   <script>
     let followingId = "<?php echo $data['blogCreated'] ;?>"
-    let followingId = "<?php echo $data['blogId'] ;?>"
+    let blogId = "<?php echo $data['blogId'] ;?>"
     let followerId = "<?php echo $_SESSION['user_id'];?>"
     </script>
   <script src="<?= ROOT ?>/assets/js/singleblog.js"></script>

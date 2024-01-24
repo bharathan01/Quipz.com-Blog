@@ -58,3 +58,17 @@
   .landing_btn button:active {
     transform: scale(0.97);
   }
+  @media(max-width:800px){
+    .landing_text{
+      height: auto;
+    }
+    .landing_text h1{
+      font-size: 9.5vw;
+    }
+    .landing_page p{
+      font-size: 3.3vw;
+    }
+    .landing_btn{
+      margin-top: 20px;
+    }
+  }

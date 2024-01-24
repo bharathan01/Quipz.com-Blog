@@ -1,10 +1,12 @@
 <?php
 require "../app/models/UpdateProfile.model.php";
+require "../app/models/GetProfileBlogs.model.php";
 class EditProfile extends Controller
 {   
+    use GetProfileBlog;
     use UpadateProfile;
     private function getUpdatedData()
-    { 
+    {
         $error = [];
         if (isset($_POST['update'])) {
             if (empty($_POST['name'])) {
@@ -24,51 +26,51 @@ class EditProfile extends Controller
         return $error;
     }
     public function sanitizeUserData()
-    {   
-          if (sizeof($this->getUpdatedData()) == 0) {
-                $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
-                $name = $name !== null ? trim($name) : '';
+    {
+        if (sizeof($this->getUpdatedData()) == 0) {
+            $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
+            $name = $name !== null ? trim($name) : '';
 
-                $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
-                $username = $username !== null ? trim($username) : '';
+            $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+            $username = $username !== null ? trim($username) : '';
 
-                $bio = filter_input(INPUT_POST, 'bio', FILTER_SANITIZE_STRING);
-                
-                $email = isset($_POST['email']) ? filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL) : '';
-                $email = $email !== null ? trim($email) : '';
-               if(isset($_FILES["profileImage"]) ){
+            $bio = filter_input(INPUT_POST, 'bio', FILTER_SANITIZE_STRING);
+
+            $email = isset($_POST['email']) ? filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL) : '';
+            $email = $email !== null ? trim($email) : '';
+            if ($_FILES['profileImage']['name'] == null) {
+                $profileImage = $_SESSION['profileimage'];
+                $profileImageName = $_SESSION['profileimage'];
+            }
+            else{
                 $profileImage = $_FILES['profileImage'];
-                }else{
-                    $profileImage = $_SESSION['profileimage'];
-                }
-                $updateProfile =  [
-                    'name' => $name,
-                    'username' => $username,
-                    'email' => $email,
-                    'profileImage' => $profileImage,
-                    'bio' => $bio
-                ];
-                $success = $this->updateProfile($updateProfile);
-                 $profileImageName = $profileImage['name'];
-                if ($success) {
-                    $_SESSION['name'] = $updateProfile['name'];
-                    $_SESSION['username'] = $updateProfile['username'];
-                    $_SESSION['profileimage']  = $profileImageName;
-                    $_SESSION['bio'] = $updateProfile['bio'];
-                    $_SESSION['*'] = $updateProfile['email'];
-                    header("location: profile"); 
-                }
-            }else{
-                echo "not okk";
-            } 
-        
+                $profileImageName = $profileImage['name'];
+            }
+            $updateProfile =  [
+                'name' => $name,
+                'username' => $username,
+                'email' => $email,
+                'profileImage' => $profileImage,
+                'bio' => $bio
+            ];
+            $success = $this->updateProfile($updateProfile);
+            if ($success) {
+                $location = $_SESSION['user_id'];
+                header("location:profile?id=" . $location);
+            }
+        }
+    }
+    public function getUserData(){
+       $userId = $_GET['id'];
+       $r =  $this->getUserData($userId);
+       print_r($r);    
     }
     public function index()
     {
-        $this->view('editProfile', "");
+        $this->view('editProfile', $this->getUserData());
     }
 }
 $edit = new EditProfile();
-if(isset($_POST['update'])){
+if (isset($_POST['update'])) {
     $edit->sanitizeUserData();
 }

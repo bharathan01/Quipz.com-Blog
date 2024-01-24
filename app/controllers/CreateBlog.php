@@ -57,7 +57,7 @@ class CreateBlog extends Controller
     }
     public function index()
     {
-        $this->view('createblog', $this->accessCategory());
+        $this->view('createBlog', $this->accessCategory());
     }
 
 }
