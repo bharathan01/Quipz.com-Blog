@@ -25,7 +25,7 @@
       </div>
       <div class="posted">
         <div class="user_intraction"><a ><ion-icon  name="thumbs-up"id="like"></ion-icon></a>
-        <h5 id="like_count">0</h5>
+        <h5 id="like_count"></h5>
          </div>
         <div class="user_intraction"><a href="#comment"><ion-icon name="chatbox"></ion-icon></a>
         <h5 id="comment_count">0</h5>
@@ -164,9 +164,11 @@
     </div> -->
   </section>
   <script>
-    let followingId = "<?php echo $data['blogCreated'] ;?>"
-    let blogId = "<?php echo $data['blogId'] ;?>"
-    let followerId = "<?php echo $_SESSION['user_id'];?>"
+    let followingId = "<?=$data['blogCreated'] ;?>"
+    let blogId = "<?=$data['blogId'] ;?>"
+    let followerId = "<?=$_SESSION['user_id'];?>"
+    let likeCount = <?=$data['likeData'][0]['total_likes'];?> 
+    let isUserliked =<?=$data['likeData'][0]['user_liked'];?> 
     </script>
   <script src="<?= ROOT ?>/assets/js/singleblog.js"></script>
 </body>

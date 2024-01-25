@@ -1,15 +1,17 @@
 <?php
 require "../app/models/Blog.model.php";
 class Blog extends Controller
-{
+{   
     use Blogs;
     public function getBlog()
     {
         $blogId = $_GET['id'];
+        $userId =  $_SESSION['user_id'];
         $result = $this->getSingleBlog($blogId);
         $blogCreatorId = $result[0]['user_id'];
         $userData =  $this->getBlogcreatorData($blogCreatorId);
         $commentData = $this->getCommentData($blogId);
+        $likeData = $this->getblogLikeData($blogId,$userId);
         $blogData = [
             'blogCreated' => $userData['user_id'],
             'creatorName' => $userData['username'],
@@ -19,7 +21,8 @@ class Blog extends Controller
             'blogcratedAt' => $result[0]['created_at'],
             'userProfileImage' => $userData['profileimage'],
             'blogId' => $result[0]['blog_id'],
-            'comment' => $commentData
+            'comment' => $commentData,
+            'likeData'=>$likeData
         ];
         return $blogData;
     }
@@ -40,7 +43,7 @@ class Blog extends Controller
         return $commentData;
     }
     public function index()
-    {
+    { 
         $this->view('blog', $this->getBlog());
     }
 }
