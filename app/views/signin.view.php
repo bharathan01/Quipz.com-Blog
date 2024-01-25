@@ -1,5 +1,13 @@
-<link rel="stylesheet" href="<?= ROOT ?>/assets/css/signin_signup.css">
-<link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/signin_signup.css">
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+</head>
+<body>
 <div class="main">
     <section class="sign-in">
         <div class="container">
@@ -30,6 +38,6 @@
         </div>
     </section>
 </div>
-
-
 </div>
+</body>
+</html>

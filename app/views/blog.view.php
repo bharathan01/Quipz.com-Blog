@@ -5,8 +5,7 @@
 <body>
   <section class="single_blog">
     <div class="bloge_image">
-      <!-- <img src="<?= ROOT ?>/assets/images/<?= $data['blogImage'] ?>" alt="blog image" srcset="" /> -->
-      <img src="http://localhost/MVC-frameWork/app/models/uploads/shameer.jpg" alt="">
+      <img src="<?= ROOT ?>/assets/images/<?= $data['blogImage'] ?>" alt="blog image" srcset="" />
       <?php if ($_SESSION['user_id'] === $data['blogCreated']) { ?>
         <div class="auther_controlls">
           <a href=""><button>Delete</button></a>

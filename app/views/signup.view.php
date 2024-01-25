@@ -1,5 +1,17 @@
-<link rel="stylesheet" href="<?= ROOT ?>/assets/css/signin_signup.css">
-<link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form by Colorlib</title>
+
+    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/signin_signup.css">
+     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+</head>
+<body>
+
 <div class="main">
         <!-- Sign up form -->
         <section class="signup">
@@ -53,3 +65,5 @@
             </div>
         </section>
     </div>
+    </body>
+</html>

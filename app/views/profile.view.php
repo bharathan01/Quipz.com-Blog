@@ -1,4 +1,4 @@
-
+<?php include '../app/views/header.view.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

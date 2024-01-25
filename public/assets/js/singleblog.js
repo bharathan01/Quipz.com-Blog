@@ -8,10 +8,9 @@ function wrapTheText(element) {
   
   
 function sentData(followerId,followingId){
-    console.log("ok");
     let xhr = new XMLHttpRequest();
     xhr.open('POST','Blog.php',true)
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.setRequestHeader('UserIntraction.php', 'application/x-www-form-urlencoded');
     var data = 'user_id=' + encodeURIComponent(followerId) + '&blog_id=' + encodeURIComponent(followingId);
 
     xhr.onreadystatechange = function() {

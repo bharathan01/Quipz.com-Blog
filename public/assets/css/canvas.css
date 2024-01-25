@@ -1,7 +1,7 @@
 
 .second_page {
     width: 100%;
-    height: 450px;
+    height: 600px;
     background-color: rgba(0, 0, 0, 0.044);
     display: flex;
     align-items: center;
@@ -10,7 +10,7 @@
   }
   .featured_blog {
     width: 42%;
-    height: 300px;
+    height: 450px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 8px;
