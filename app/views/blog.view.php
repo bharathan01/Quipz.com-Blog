@@ -20,18 +20,21 @@
         </div>
         <a href="profile?id=<?= $data['blogCreated'] ?>"><span><?= $data['creatorName'] ?></span></a>
         <div class="follow">
-          <button id="follow" class="following">Follow</button>
+          <button id="follow" class="following">Follow </button>
         </div>
       </div>
       <div class="posted">
-        <div class="user_intraction"><a ><ion-icon  name="thumbs-up"id="like"></ion-icon></a>
-        <h5 id="like_count"></h5>
-         </div>
+        <div class="user_intraction"><a><ion-icon name="thumbs-up" id="like"></ion-icon></a>
+          <h5 id="like_count"><?php if (isset($data['likeData']) == 0) {
+                                echo '0';
+                              }; ?></h5>
+        </div>
         <div class="user_intraction"><a href="#comment"><ion-icon name="chatbox"></ion-icon></a>
-        <h5 id="comment_count">0</h5>
+          <h5 id="comment_count"><?php echo isset($data['comment']) ? sizeof($data['comment']) : 0; ?></h5>
         </div>
         <div class="user_intraction"><a href=""><ion-icon name="share-social"></ion-icon></a>
-        <h5 id="like_count">0</h5></div>
+          <h5 id="like_count">0</h5>
+        </div>
         <!-- <span><?= $data['blogcratedAt'] ?></span> -->
       </div>
     </div>
@@ -54,20 +57,22 @@
             <button type="submit" name="add"><ion-icon name="send-outline"></ion-icon></button>
           </form>
         </div>
-       
+
         <?php if ($data['comment']) {
           foreach ($data['comment'] as $comment) { ?>
             <div class="added-comment">
               <div class="prifle-details">
-                <a href="profile?id=<?=$comment['user_id']?>"><img class="comment-profile" src="<?= ROOT ?>/assets/images/<?= $comment['profileimage'] ?>" alt="" /></a>
+                <a href="profile?id=<?= $comment['user_id'] ?>"><img class="comment-profile" src="<?= ROOT ?>/assets/images/<?= $comment['profileimage'] ?>" alt="" /></a>
                 <div class="profile-name">
-                <a href="profile?id=<?=$comment['user_id']?>"><h5><?= $comment['name']?></h5></a>
-                  <span><?=$comment['created_at'] ?></span>
+                  <a href="profile?id=<?= $comment['user_id'] ?>">
+                    <h5><?= $comment['name'] ?></h5>
+                  </a>
+                  <span><?= $comment['created_at'] ?></span>
                 </div>
                 <div class="comment-like"><ion-icon name="heart-outline"></ion-icon></div>
               </div>
               <p>
-                <?=$comment['content'] ?>
+                <?= $comment['content'] ?>
               </p>
               <?php if ($_SESSION['user_id'] === $comment['user_id']) { ?>
                 <div class="comment-control">
@@ -84,7 +89,12 @@
         } ?>
       </div>
     </section>
-
+     <?php if (isset($data['likeData'][0])) { 
+         print_r($data['likeData'][0]);
+     } else{
+      echo "not";
+     }?>
+          
     <!-- <div class="blog_recommended">
       <div class="recommended_heading">
         <h1>recommended</h1>
@@ -164,12 +174,19 @@
     </div> -->
   </section>
   <script>
-    let followingId = "<?=$data['blogCreated'] ;?>"
-    let blogId = "<?=$data['blogId'] ;?>"
-    let followerId = "<?=$_SESSION['user_id'];?>"
-    let likeCount = <?=$data['likeData'][0]['total_likes'];?> 
-    let isUserliked =<?=$data['likeData'][0]['user_liked'];?> 
-    </script>
+    let followingId = "<?= $data['blogCreated']; ?>"
+    let blogId = "<?= $data['blogId']; ?>"
+    let followerId = "<?= $_SESSION['user_id']; ?>"
+    let likeCount = 0
+    let isUserliked = 0
+    let isFollowing = 0;
+    <?php if (isset($data['isFollowed'][0])) { ?>
+      isFollowing = 1;
+    <?php } ?>
+    <?php if (isset($data['likeData'][0])) { ?>
+         likeCount = <?=$data['likeData'][0]['total_likes']?>
+    <?php } ?>
+  </script>
   <script src="<?= ROOT ?>/assets/js/singleblog.js"></script>
 </body>
 <?php require '../app/views/footer.view.php' ?>

@@ -55,4 +55,8 @@ trait Blogs
     public function isUserFollow()
     {
     }
+    public function isFollowing($userId){
+        $Query = "SELECT CASE WHEN (SELECT COUNT(*) FROM follow WHERE following = $userId)>0 THEN 1 OR 0 END as isfollowing;";
+        return $this->getCategoryFromDb($Query);
+    }
 }

@@ -6,6 +6,7 @@ class Profile extends Controller{
         $userId = $_GET['id'];
         $userData = $this->getUserData($userId);
         $userBlogData = $this->getBlogs($userId);
+        $followerData = $this->getUserFollow($userId);
         $userProfileData = [
             'userId' =>$userData['user_id'],
             'email' =>$userData['email'],
@@ -13,7 +14,8 @@ class Profile extends Controller{
             'profileimage' =>$userData['profileimage'],
             'username' =>$userData['username'],
             'name' => $userData['name'],
-            'blogData' =>$userBlogData
+            'blogData' =>isset($userBlogData) ? $userData :0,
+            'followerData' => $followerData[0]
         ];
         return $userProfileData;
     }
