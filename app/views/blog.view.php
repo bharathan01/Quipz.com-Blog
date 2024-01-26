@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="posted">
-        <div class="user_intraction"><a><ion-icon name="thumbs-up" id="like"></ion-icon></a>
+        <div class="user_intraction"><a><ion-icon name="thumbs-up" id="like" class="<?php echo ($data['likeData'][0]['user_liked'] == 1) ? 'like' : ''; ?>"></ion-icon></a>
           <h5 id="like_count"><?php if (isset($data['likeData']) == 0) {
                                 echo '0';
                               }; ?></h5>
@@ -89,12 +89,13 @@
         } ?>
       </div>
     </section>
-     <?php if (isset($data['likeData'][0])) { 
-         print_r($data['likeData'][0]);
-     } else{
+    <?php if (isset($data['likeData'])) {
+      print_r($data['likeData'][0]['user_liked']);
+      print_r($data['likeData']);
+    } else {
       echo "not";
-     }?>
-          
+    } ?>
+
     <!-- <div class="blog_recommended">
       <div class="recommended_heading">
         <h1>recommended</h1>
@@ -180,11 +181,11 @@
     let likeCount = 0
     let isUserliked = 0
     let isFollowing = 0;
-    <?php if (isset($data['isFollowed'][0])) { ?>
+    <?php if ($data['isFollowed'][0]['isfollowing']) { ?>
       isFollowing = 1;
     <?php } ?>
-    <?php if (isset($data['likeData'][0])) { ?>
-         likeCount = <?=$data['likeData'][0]['total_likes']?>
+    <?php if (isset($data['likeData'])) { ?>
+      likeCount = <?= $data['likeData'][0]['total_likes'] ?>
     <?php } ?>
   </script>
   <script src="<?= ROOT ?>/assets/js/singleblog.js"></script>

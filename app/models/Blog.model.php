@@ -50,13 +50,10 @@ trait Blogs
         CASE WHEN (SELECT COUNT(*) FROM likes WHERE user_id = $userId AND blog_id = l.blog_id) > 0 THEN 1 ELSE 0 END as user_liked
       FROM likes l
       WHERE blog_id = $blogId LIMIT 1;";
-        return $this->getCategoryFromDb($Query);
-    }
-    public function isUserFollow()
-    {
+     return $this->getCategoryFromDb($Query);
     }
     public function isFollowing($userId){
-        $Query = "SELECT CASE WHEN (SELECT COUNT(*) FROM follow WHERE following = $userId)>0 THEN 1 OR 0 END as isfollowing;";
+        $Query = "SELECT CASE WHEN (SELECT COUNT(*) FROM follow WHERE follower = $userId) > 0 THEN 1 OR 0 END as isfollowing;";
         return $this->getCategoryFromDb($Query);
     }
 }

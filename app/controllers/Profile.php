@@ -14,7 +14,7 @@ class Profile extends Controller{
             'profileimage' =>$userData['profileimage'],
             'username' =>$userData['username'],
             'name' => $userData['name'],
-            'blogData' =>isset($userBlogData) ? $userData :0,
+            'blogData' =>isset($userBlogData) ? $userBlogData :0,
             'followerData' => $followerData[0]
         ];
         return $userProfileData;

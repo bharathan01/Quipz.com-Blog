@@ -32,22 +32,13 @@ const like = document.getElementById("like");
 const likeCountData = document.getElementById('like_count')
 const followBtn = document.getElementById("follow");
 function isUserLikedOrNot(){
-    console.log(isUserliked)
-    if(isUserliked == 1){
-        like.classList.add("like");
-        likeCountData.innerHTML = likeCount;
-    }else{
-        likeCountData.innerHTML = likeCount;
-    }
+    likeCountData.innerHTML = likeCount;
 }
 function isUserFollowOrNot(){
     console.log(isFollowing)
     if(isFollowing == 1){
         followBtn.classList.add("followed");
         followBtn.innerHTML = "Following";
-    }else{
-        followBtn.classList.remove("followed");
-        followBtn.innerHTML = "Followed";
     }
 }
 isUserLikedOrNot();
