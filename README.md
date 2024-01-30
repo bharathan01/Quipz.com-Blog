@@ -57,8 +57,7 @@ The project is organized using the MVC architecture:
   - **css**: Contains stylesheets for the application.
   - **images**: Stores images used in the application.
   - **js**: Holds JavaScript files for client-side functionality.
-
-- **vendor**: External dependencies and libraries.
+note : create a image folder in the public file
 
 - **.gitignore**: Specifies files and directories to be ignored by Git.
 
